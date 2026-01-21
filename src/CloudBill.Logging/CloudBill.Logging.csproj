@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>CloudBill.Logging</PackageId>
+    <Version>1.1.0</Version>
+    <Authors>CloudBill Development Team</Authors>
+    <Company>CloudBill</Company>
+    <Product>CloudBill Logging</Product>
+    <Description>CloudBill organization-wide logging standard with Serilog and OpenTelemetry. Provides consistent, structured logging across all CloudBill services (Web APIs and Workers) with correlation tracking, tenant context, enrichment, and AWS CloudWatch integration.</Description>
+    <PackageTags>serilog;logging;opentelemetry;observability;cloudbill;structured-logging;correlation-id;aws-cloudwatch;worker-services</PackageTags>
+    <RepositoryUrl>https://github.com/cloudbillhq/CloudBill.Logging</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <Copyright>Copyright (c) CloudBill 2025</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" Condition="Exists('..\..\icon.png')" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.2" />
+    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.14.0" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.14.0" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.14.0" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.14.0" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.14.0" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.14.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+    <PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+    <PackageReference Include="Serilog.Formatting.Compact" Version="3.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="10.0.0" />
+    <PackageReference Include="Serilog.Sinks.AwsCloudWatch" Version="4.4.42" />
+    <!-- Override transitive AWSSDK.Core to fix vulnerability -->
+    <PackageReference Include="AWSSDK.Core" Version="4.0.3.10" />
+  </ItemGroup>
+
+</Project>
