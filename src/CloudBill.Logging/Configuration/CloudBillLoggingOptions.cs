@@ -60,6 +60,12 @@ public class CloudBillLoggingOptions
     public bool EnableUserId { get; set; } = true;
 
     /// <summary>
+    /// Enable account ID tracking (MasterAccountId) for customer portal applications.
+    /// Use this instead of or in addition to UserId when the authenticated entity is a billing account.
+    /// </summary>
+    public bool EnableAccountId { get; set; } = false;
+
+    /// <summary>
     /// Output logs in JSON format (CompactJsonFormatter) for CloudWatch/structured logging.
     /// Recommended for production and ECS/container environments.
     /// </summary>

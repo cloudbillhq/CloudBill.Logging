@@ -160,6 +160,12 @@ public static class CloudBillLoggingExtensions
                 configuration.Enrich.With(new UserIdEnricher(httpContextAccessor));
             }
 
+            if (options.EnableAccountId)
+            {
+                var httpContextAccessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
+                configuration.Enrich.With(new AccountIdEnricher(httpContextAccessor));
+            }
+
             configuration.Enrich.With(new ServiceNameEnricher(options.ServiceName));
 
             // Add console sink with JSON format for CloudWatch
