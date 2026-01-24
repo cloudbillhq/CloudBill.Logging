@@ -127,3 +127,7 @@ StyleCopReport.xml
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Local artifacts
+binverify/
+nul
